@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnaBiaStreaming</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">AnaBiaStreaming</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="precos.html">Assinar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pagamento">
+            <h2>Pagamento do Plano <span id="planoSelecionado"></span></h2>
+            <form onsubmit="confirmarAssinatura(event)">
+                <div class="form-group">
+                    <label for="numeroCartao">Número do Cartão:</label>
+                    <input type="text" id="numeroCartao" maxlength="19" placeholder="0000/0000/0000/0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomeTitular">Nome do Titular:</label>
+                    <input type="text" id="nomeTitular" required>
+                </div>
+                <div class="form-group">
+                    <label for="validade">Validade:</label>
+                    <input type="text" id="validade" maxlength="5" placeholder="MM/AA" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" maxlength="3" placeholder="000" required>
+                </div>
+                <button type="submit">Confirmar Pagamento</button>
+            </form>
+        </section>
+
+        <section id="confirmacao" style="display: none;">
+            <h2>Obrigado por escolher o plano <span id="planoSelecionadoFinal"></span>!</h2>
+            <p>Um e-mail de confirmação foi enviado para você. Por favor, verifique sua caixa de entrada para prosseguir.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Streaming Completo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Preenche o nome do plano baseado no parâmetro da URL
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plano = urlParams.get('plano');
+            document.getElementById('planoSelecionado').innerText = plano;
+            document.getElementById('planoSelecionadoFinal').innerText = plano;
+        }
+
+        // Formatação automática do número do cartão
+        document.getElementById('numeroCartao').addEventListener('input', function (e) {
+            let input = e.target.value.replace(/\D/g, ''); // Remove qualquer caractere que não seja número
+            input = input.substring(0, 16); // Limita a 16 dígitos
+            input = input.replace(/(\d{4})(\d)/g, '$1/$2'); // Adiciona barra a cada 4 dígitos
+            e.target.value = input;
+        });
+
+        // Validação e simulação de envio
+        function confirmarAssinatura(event) {
+            event.preventDefault();
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('confirmacao').style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</body>
+</html>

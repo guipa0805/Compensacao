@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guigui Filmes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2c2c2c;
+        }
+
+        header {
+            background-color: #ce0000;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding-top: 100px;
+        }
+
+        .destaques {
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .destaques h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            background-color: #ce0000;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item a {
+            text-decoration: none;
+            color: #141414;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .item p {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AnaBiaStreaming</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="precos.html">Assinar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="destaques">
+            <h2>Destaques</h2>
+            <div class="grid">
+                <div class="item">
+                    <h3><a href="filmes.html">Filmes</a></h3>
+                    <p>Os melhores lançamentos e clássicos do cinema.</p>
+                </div>
+                <div class="item">
+                    <h3><a href="series.html">Séries</a></h3>
+                    <p>Séries para todos os gostos, de drama a comédia.</p>
+                </div>
+                <div class="item">
+                    <h3><a href="animes.html">Animes</a></h3>
+                    <p>Os animes mais populares e novos episódios.</p>
+                </div>
+                <div class="item">
+                    <h3><a href="doramas.html">Doramas</a></h3>
+                    <p>Doramas que emocionam e cativam.</p>
+                </div>
+                <div class="item">
+                    <h3><a href="desenhos.html">Desenhos</a></h3>
+                    <p>Desenhos animados para todas as idades.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
